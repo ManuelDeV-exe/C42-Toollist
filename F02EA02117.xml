@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<EinstellSystemIstDaten>
+  <KopfDaten>
+    <Auftrag GUID="2d96e737-284a-444f-9fb9-a8804c428a0e" />
+    <EinstellSystem HostName="0EA67330" />
+  </KopfDaten>
+  <WerkzeugDaten>
+    <KomplettWerkzeug Id="710881" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="109.737" />
+          <Quer Wert="40.085" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0.186" />
+          <Winkel1 Wert="0.01" />
+          <Winkel2 Wert="4.18" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="712680" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="126.351" />
+          <Quer Wert="0" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="23.11" />
+          <Winkel2 Wert="23.08" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="713497" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="142.665" />
+          <Quer Wert="7.732" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="0.04" />
+          <Winkel2 Wert="4.37" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="713680" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="131.573" />
+          <Quer Wert="1.5" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="0.49" />
+          <Winkel2 Wert="0.42" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="714499" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="99.974" />
+          <Quer Wert="31.469" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="0" />
+          <Winkel2 Wert="0" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="717665" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="87.649" />
+          <Quer Wert="2.809" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="0" />
+          <Winkel2 Wert="0.09" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="717782" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="124.039" />
+          <Quer Wert="7.568" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="0.09" />
+          <Winkel2 Wert="0.02" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="718615" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="105.008" />
+          <Quer Wert="2.607" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="0" />
+          <Winkel2 Wert="0.04" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="720015" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="104.877" />
+          <Quer Wert="1.5" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="44.87" />
+          <Winkel2 Wert="0" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="720343" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="88.322" />
+          <Quer Wert="1.253" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0.136" />
+          <Winkel1 Wert="0.27" />
+          <Winkel2 Wert="0.11" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+    <KomplettWerkzeug Id="722878" DuploNr="1">
+      <ValueFacturingTFK1>Leer</ValueFacturingTFK1>
+      <ValueFacturingTFK2>Leer</ValueFacturingTFK2>
+      <ValueFacturingTFK3>Leer</ValueFacturingTFK3>
+      <ValueFacturingTFK4>Leer</ValueFacturingTFK4>
+      <ValueFacturingTFK5>Leer</ValueFacturingTFK5>
+      <EinstellSchneiden>
+        <EinstellSchneide Nr="1">
+          <Laenge1 Wert="167.394" />
+          <Quer Wert="0" />
+          <YHoehe Wert="NULL" />
+          <Radius Wert="0" />
+          <Winkel1 Wert="19.67" />
+          <Winkel2 Wert="19.64" />
+          <SchneidenBreite Wert="NULL" />
+          <SchneidenBreiteZwei Wert="NULL" />
+          <Anstellwinkel Wert="NULL" />
+          <Schneidenwinkel Wert="NULL" />
+          <ValueFacturingTFS1>Leer</ValueFacturingTFS1>
+          <ValueFacturingTFS2>Leer</ValueFacturingTFS2>
+          <ValueFacturingTFS3>Leer</ValueFacturingTFS3>
+          <ValueFacturingTFS4>Leer</ValueFacturingTFS4>
+          <ValueFacturingTFS5>Leer</ValueFacturingTFS5>
+        </EinstellSchneide>
+      </EinstellSchneiden>
+    </KomplettWerkzeug>
+  </WerkzeugDaten>
+</EinstellSystemIstDaten>
