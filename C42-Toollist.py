@@ -1,8 +1,6 @@
 import sys, os
-from PySide6 import QtWidgets
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
-from PySide6 import QtCore, QtGui
 
 from MainWindow import Ui_C42_Toollist
 
@@ -76,16 +74,18 @@ def Umwandeln():
 
         # tool_list.append(my_list[0] + ",")#T
         tool_list.append(my_list[1] + ",")#Name
-        tool_list.append(my_list[2] + ",")#L
-        tool_list.append(my_list[3] + ",")#R
 
         if i == 1:
+            tool_list.append(my_list[2] + ",")#L
+            tool_list.append(my_list[3] + ",")#R
             tool_list.append("ACC" + ",")
             tool_list.append("AFC" + ",")
             tool_list.append("AFC-LOAD" + ",")
             tool_list.append("AFC-OVLD1" + ",")
             tool_list.append("AFC-OVLD2" + ",")
         else:
+            tool_list.append(str(round(float(my_list[2]),4)) + ",")#L
+            tool_list.append(str(round(float(my_list[3]),4)) + ",")#R
             tool_list.append("0" + ",")
             tool_list.append("" + ",")
             tool_list.append("" + ",")   
@@ -103,7 +103,10 @@ def Umwandeln():
 
         tool_list.append(my_list[16] + ",")#DIRECT
         tool_list.append(my_list[5] + ",")#DL
-        tool_list.append(my_list[12] + ",")#DOC
+        if i == 1:
+            tool_list.append(my_list[12] + ",")#DOC
+        else:
+            tool_list.append(my_list[35] + ",")#COMMENT
         tool_list.append(my_list[7] + ",")#DR
         tool_list.append(my_list[8] + ",")#DR2
 
@@ -117,14 +120,21 @@ def Umwandeln():
         if i == 1:
             tool_list.append("KINEMATIC" + ",")#Kinematic
             tool_list.append("LAST_USE" + ",")
+            tool_list.append(my_list[20] + ",")#LBREAK
+            tool_list.append(my_list[22] + ",")#LCUTS
         else:
             tool_list.append("" + ",")
             tool_list.append("" + ",")
+            tool_list.append(my_list[20] + ",")#LBREAK
+            tool_list.append(str(0) + ",")#LCUTS
 
-        tool_list.append(my_list[20] + ",")#LBREAK
-        tool_list.append(my_list[22] + ",")#LCUTS
         tool_list.append(my_list[29] + ",")#LIFTOFF
-        tool_list.append(my_list[14] + ",")#LTOL
+        
+        if i == 1:
+            tool_list.append(my_list[14] + ",")#LTOL
+        else:
+            tool_list.append("0" + ",")
+
         tool_list.append(my_list[6] + ",")#NMAX
 
         if i == 1:
@@ -132,22 +142,31 @@ def Umwandeln():
         else:
             tool_list.append("" + ",")
 
-        tool_list.append(my_list[30] + ",")#P1
-        tool_list.append(my_list[31] + ",")#P2
-        tool_list.append(my_list[32] + ",")#P3
-
         if i == 1:
+            tool_list.append(my_list[30] + ",")#P1
+            tool_list.append(my_list[31] + ",")#P2
+            tool_list.append(my_list[32] + ",")#P3
             tool_list.append("P4" + ",")
             tool_list.append("P5" + ",")
             tool_list.append("P6" + ",")
             tool_list.append("P7" + ",")
             tool_list.append("P8" + ",")
         else:
+            if float(my_list[3]) >= 35.0:
+                tool_list.append(str(35) + ",")#L
+            elif float(my_list[2]) >= 80.0:
+                tool_list.append(str(80) + ",")#L
+            elif float(my_list[2]) >= 125.0:
+                tool_list.append(str(125) + ",")#L
+            
+            tool_list.append(my_list[31] + ",")#P2
+            tool_list.append(my_list[32] + ",")#P3
             tool_list.append("0" + ",")
             tool_list.append("0" + ",")
             tool_list.append("0" + ",")
             tool_list.append("0" + ",")
-            tool_list.append("0" + ",")
+
+            tool_list.append(str(int(round(float(my_list[2]),0))) + ",")
 
         tool_list.append(my_list[34] + ",")#PITCH
         
@@ -195,15 +214,18 @@ def Umwandeln():
         tool_list.append(my_list[19] + ",")#TT:R-OFFS
 
         if i == 1:
-            tool_list.append(my_list[24] + ",")#TYP
+            tool_list.append(my_list[24] + "")#TYP
         else:
-            tool_list.append("0" + ",")#TYP
+            if "MILL" in my_list[24]:
+                tool_list.append("0" + "")#TYP
+            elif "DRILL" in my_list[24]:
+                tool_list.append("1" + "")#TYP
+            else:
+                tool_list.append("" + "")#TYP
 
         # tool_list.append(my_list[26] + ",")#CAL-OF1
         # tool_list.append(my_list[27] + ",")#CAL-OF12
         # tool_list.append(my_list[28] + ",")#CAL-ANG
-
-        tool_list.append(my_list[35] + ",")#COMMENT
 
         tool_list = "".join(tool_list)
         tool_list = tool_list + "\n"
