@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindow.ui'
+## Form generated from reading UI file 'ERROR_MSG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -15,22 +15,19 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QSizePolicy, QTabWidget, QWidget)
+from PySide6.QtWidgets import (QApplication, QDialog, QLabel, QPushButton,
+    QSizePolicy, QWidget)
 import Resources_rc
 
-class Ui_C42_Toollist(object):
-    def setupUi(self, C42_Toollist):
-        if not C42_Toollist.objectName():
-            C42_Toollist.setObjectName(u"C42_Toollist")
-        C42_Toollist.resize(560, 145)
-        C42_Toollist.setMinimumSize(QSize(560, 110))
-        C42_Toollist.setMaximumSize(QSize(560, 145))
-        C42_Toollist.setContextMenuPolicy(Qt.ActionsContextMenu)
+class Ui_ERROR_MSG(object):
+    def setupUi(self, ERROR_MSG):
+        if not ERROR_MSG.objectName():
+            ERROR_MSG.setObjectName(u"ERROR_MSG")
+        ERROR_MSG.resize(400, 117)
         icon = QIcon()
-        icon.addFile(u":/ICONS/data/Icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        C42_Toollist.setWindowIcon(icon)
-        C42_Toollist.setStyleSheet(u"/*Copyright (c) DevSec Studio. All rights reserved.\n"
+        icon.addFile(u":/ICONS/data/ERROR_ICON.png", QSize(), QIcon.Normal, QIcon.Off)
+        ERROR_MSG.setWindowIcon(icon)
+        ERROR_MSG.setStyleSheet(u"/*Copyright (c) DevSec Studio. All rights reserved.\n"
 "\n"
 "MIT License\n"
 "\n"
@@ -293,78 +290,23 @@ class Ui_C42_Toollist(object):
 "\n"
 "}\n"
 "")
-        C42_Toollist.setTabShape(QTabWidget.Rounded)
-        self.centralwidget = QWidget(C42_Toollist)
-        self.centralwidget.setObjectName(u"centralwidget")
-        self.OriginalPath = QLineEdit(self.centralwidget)
-        self.OriginalPath.setObjectName(u"OriginalPath")
-        self.OriginalPath.setEnabled(True)
-        self.OriginalPath.setGeometry(QRect(10, 10, 441, 31))
-        self.OriginalPath.setCursor(QCursor(Qt.ArrowCursor))
-        self.OriginalPath.setDragEnabled(True)
-        self.OriginalPath.setReadOnly(True)
-        self.BTN_Laden = QPushButton(self.centralwidget)
-        self.BTN_Laden.setObjectName(u"BTN_Laden")
-        self.BTN_Laden.setGeometry(QRect(460, 10, 91, 71))
-        self.BTN_Laden.setCursor(QCursor(Qt.PointingHandCursor))
-        self.FinalPath = QLineEdit(self.centralwidget)
-        self.FinalPath.setObjectName(u"FinalPath")
-        self.FinalPath.setGeometry(QRect(10, 50, 441, 31))
-        self.FinalPath.setCursor(QCursor(Qt.ArrowCursor))
-        self.FinalPath.setDragEnabled(True)
-        self.FinalPath.setReadOnly(True)
-        self.label_ProgrammVersion = QLabel(self.centralwidget)
-        self.label_ProgrammVersion.setObjectName(u"label_ProgrammVersion")
-        self.label_ProgrammVersion.setGeometry(QRect(255, 125, 50, 15))
-        font = QFont()
-        font.setPointSize(10)
-        self.label_ProgrammVersion.setFont(font)
-        self.label_ProgrammVersion.setAlignment(Qt.AlignCenter)
-        self.BTN_umwandeln = QPushButton(self.centralwidget)
-        self.BTN_umwandeln.setObjectName(u"BTN_umwandeln")
-        self.BTN_umwandeln.setGeometry(QRect(460, 87, 91, 51))
-        self.BTN_umwandeln.setCursor(QCursor(Qt.PointingHandCursor))
-        self.TOOL_NBR = QLineEdit(self.centralwidget)
-        self.TOOL_NBR.setObjectName(u"TOOL_NBR")
-        self.TOOL_NBR.setGeometry(QRect(50, 90, 71, 41))
-        self.TOOL_NBR.setCursor(QCursor(Qt.ArrowCursor))
-        self.TOOL_NBR.setDragEnabled(True)
-        self.TOOL_NBR.setReadOnly(False)
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(10, 90, 41, 41))
-        self.label_2.setFont(font)
-        self.label_2.setAlignment(Qt.AlignCenter)
-        C42_Toollist.setCentralWidget(self.centralwidget)
+        self.ERRO_MSG = QLabel(ERROR_MSG)
+        self.ERRO_MSG.setObjectName(u"ERRO_MSG")
+        self.ERRO_MSG.setGeometry(QRect(10, 10, 371, 51))
+        self.ERRO_MSG.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.BTN_OK = QPushButton(ERROR_MSG)
+        self.BTN_OK.setObjectName(u"BTN_OK")
+        self.BTN_OK.setGeometry(QRect(150, 80, 91, 31))
+        self.BTN_OK.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.retranslateUi(C42_Toollist)
+        self.retranslateUi(ERROR_MSG)
 
-        QMetaObject.connectSlotsByName(C42_Toollist)
+        QMetaObject.connectSlotsByName(ERROR_MSG)
     # setupUi
 
-    def retranslateUi(self, C42_Toollist):
-        C42_Toollist.setWindowTitle(QCoreApplication.translate("C42_Toollist", u"C42_Toollist", None))
-#if QT_CONFIG(tooltip)
-        C42_Toollist.setToolTip(QCoreApplication.translate("C42_Toollist", u"C42_Toollist", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
-        self.OriginalPath.setToolTip(QCoreApplication.translate("C42_Toollist", u"Speicherpfad der WZD-Datei", None))
-#endif // QT_CONFIG(tooltip)
-        self.OriginalPath.setText("")
-        self.OriginalPath.setPlaceholderText(QCoreApplication.translate("C42_Toollist", u"C:\\", None))
-        self.BTN_Laden.setText(QCoreApplication.translate("C42_Toollist", u"Datei Laden", None))
-#if QT_CONFIG(tooltip)
-        self.FinalPath.setToolTip(QCoreApplication.translate("C42_Toollist", u"Ausgabepfad der CSV-Datei", None))
-#endif // QT_CONFIG(tooltip)
-        self.FinalPath.setText("")
-        self.FinalPath.setPlaceholderText(QCoreApplication.translate("C42_Toollist", u"C:\\", None))
-        self.label_ProgrammVersion.setText(QCoreApplication.translate("C42_Toollist", u"V0.1", None))
-        self.BTN_umwandeln.setText(QCoreApplication.translate("C42_Toollist", u"Umwandeln", None))
-#if QT_CONFIG(tooltip)
-        self.TOOL_NBR.setToolTip(QCoreApplication.translate("C42_Toollist", u"Leer lassen wenn die Position der Werkzeuge ergal ist. Ansonsten kann hier die Postion des ersten Werkzeugs bestimmt werden, der Rest wird Inkremental zugerechnet.", None))
-#endif // QT_CONFIG(tooltip)
-        self.TOOL_NBR.setText("")
-        self.TOOL_NBR.setPlaceholderText(QCoreApplication.translate("C42_Toollist", u"0-999", None))
-        self.label_2.setText(QCoreApplication.translate("C42_Toollist", u"T:", None))
+    def retranslateUi(self, ERROR_MSG):
+        ERROR_MSG.setWindowTitle(QCoreApplication.translate("ERROR_MSG", u"ERROR MSG", None))
+        self.ERRO_MSG.setText(QCoreApplication.translate("ERROR_MSG", u"TextLabel", None))
+        self.BTN_OK.setText(QCoreApplication.translate("ERROR_MSG", u"OK", None))
     # retranslateUi
 

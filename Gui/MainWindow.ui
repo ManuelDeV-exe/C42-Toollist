@@ -30,7 +30,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../Resources.qrc">
-    <normaloff>:/newPrefix/data/Icon.png</normaloff>:/newPrefix/data/Icon.png</iconset>
+    <normaloff>:/ICONS/data/Icon.png</normaloff>:/ICONS/data/Icon.png</iconset>
   </property>
   <property name="toolTip">
    <string>C42_Toollist</string>
@@ -315,6 +315,9 @@ QScrollBar::sub-page:vertical
     <property name="cursor">
      <cursorShape>ArrowCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>Speicherpfad der WZD-Datei</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -356,6 +359,9 @@ QScrollBar::sub-page:vertical
     <property name="cursor">
      <cursorShape>ArrowCursor</cursorShape>
     </property>
+    <property name="toolTip">
+     <string>Ausgabepfad der CSV-Datei</string>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -369,7 +375,7 @@ QScrollBar::sub-page:vertical
      <string>C:\</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_ProgrammVersion">
     <property name="geometry">
      <rect>
       <x>255</x>
@@ -393,10 +399,10 @@ QScrollBar::sub-page:vertical
    <widget class="QPushButton" name="BTN_umwandeln">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>90</y>
-      <width>100</width>
-      <height>30</height>
+      <x>460</x>
+      <y>87</y>
+      <width>91</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="cursor">
@@ -404,6 +410,55 @@ QScrollBar::sub-page:vertical
     </property>
     <property name="text">
      <string>Umwandeln</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="TOOL_NBR">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>90</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>Leer lassen wenn die Position der Werkzeuge ergal ist. Ansonsten kann hier die Postion des ersten Werkzeugs bestimmt werden, der Rest wird Inkremental zugerechnet.</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="dragEnabled">
+     <bool>true</bool>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>0-999</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>T:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
