@@ -18,7 +18,7 @@ from ERROR_MSG import Ui_ERROR_MSG
 # Updater
 
 global AktulleVersion
-AktulleVersion = ""
+AktulleVersion = "0.6"
 JsonURL = 'https://3ddruck-mb.de/UpdateChecker/C42_Toollist_Converter_CheckforUpdate.json'
 headersURL = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 paramURL = dict()
@@ -164,7 +164,7 @@ def GetOriginalPath(self):
     global filepath
     global outputpath
 
-    filepath_original = QFileDialog.getOpenFileName( None, 'Select Werkzeugliste', "", 'Werkzeugliste(*.wzd*)')
+    filepath_original = QFileDialog.getOpenFileName( None, 'Select Werkzeugliste', "", 'Werkzeugliste(*.wzd);;Werkzeugliste(*.out)')
     MainWindow.ui.OriginalPath.setText(filepath_original[0]) 
 
     filepath = filepath_original[0]
@@ -188,6 +188,8 @@ def Umwandeln():
     with open(filepath, 'r+') as f:
         lines = f.readlines()
 
+    DateiEndung = str(filepath[-3:]).lower()
+
     my_list = []
 
     for i in range(len(lines)-1):
@@ -198,221 +200,336 @@ def Umwandeln():
             KorrigierenTNummer = KorrigierenTNummer + 1
             continue
 
-        #  Aufteilen und mit Komma wieder zusammenfügen.
-        my_list = lines[i].split() 
-
-        if i == 1:
-            my_list.pop(41)
-            my_list.pop(38)
-            my_list.pop(29)
-            my_list.pop(28)
-            my_list.pop(11)
-            my_list.pop(10)
-            my_list.pop(9)
-        else:
-            my_list.pop(17)
-            my_list.pop(16)
-
-        if MainWindow.ui.TOOL_NBR.text().isnumeric():
-            if i == 1:
-                tool_list.append(my_list[0] + ",") #T
-            else:
-                Nummer = MainWindow.ui.TOOL_NBR.text()
-                Nummer = int(Nummer) + i - KorrigierenTNummer - 2
-                tool_list.append(str(Nummer) + ",") #T
-
-        tool_list.append(my_list[1] + ",")#Name
-
-        if i == 1:
-            tool_list.append(my_list[2] + ",")#L
-            tool_list.append(my_list[3] + ",")#R
-            tool_list.append("ACC" + ",")
-            tool_list.append("AFC" + ",")
-            tool_list.append("AFC-LOAD" + ",")
-            tool_list.append("AFC-OVLD1" + ",")
-            tool_list.append("AFC-OVLD2" + ",")
-        else:
-            tool_list.append(str(round(float(my_list[2]),4)) + ",")#L
-            tool_list.append(str(round(float(my_list[3]),4)) + ",")#R
-            tool_list.append("0" + ",")
-            tool_list.append("" + ",")
-            tool_list.append("" + ",")   
-            tool_list.append("" + ",")  
-            tool_list.append("" + ",")
-
-        tool_list.append(my_list[23] + ",")#ANGLE
-        tool_list.append(my_list[11] + ",")#CUR.TIME
-        tool_list.append(my_list[13] + ",")#CUT
-
-        if i == 1:
-            tool_list.append("CUTDATA" + ",")
-        else:
-            tool_list.append("0" + ",")
-
-        tool_list.append(my_list[16] + ",")#DIRECT
-        tool_list.append(my_list[5] + ",")#DL
-        if i == 1:
-            tool_list.append(my_list[12] + ",")#DOC
-        else:
-            tool_list.append(my_list[35] + ",")#COMMENT
-        tool_list.append(my_list[7] + ",")#DR
-        tool_list.append(my_list[8] + ",")#DR2
-
-        if i == 1:
-            tool_list.append("DR2TABLE" + ",")
-            tool_list.append("INV-NR" + ",")
-        else:
-            tool_list.append("" + ",")
-            tool_list.append("" + ",")
-
-        if i == 1:
-            tool_list.append("KINEMATIC" + ",")#Kinematic
-            tool_list.append("LAST_USE" + ",")
-            tool_list.append(my_list[20] + ",")#LBREAK
-            tool_list.append(my_list[22] + ",")#LCUTS
-        else:
-            tool_list.append("" + ",")
-            tool_list.append("" + ",")
-            tool_list.append(str(float(my_list[20])) + ",")#LBREAK
-            tool_list.append(str(0) + ",")#LCUTS
-
-        tool_list.append(my_list[29] + ",")#LIFTOFF
-        
-        if i == 1:
-            tool_list.append(my_list[14] + ",")#LTOL
-        else:
-            tool_list.append("0" + ",")
-
-        tool_list.append(my_list[6] + ",")#NMAX
-
-        if i == 1:
-            tool_list.append("OVRTIME" + ",")
-        else:
-            tool_list.append("" + ",")
-
-        if i == 1:
-            tool_list.append(my_list[30] + ",")#P1
-            tool_list.append(my_list[31] + ",")#P2
-            tool_list.append(my_list[32] + ",")#P3
-            tool_list.append("P4" + ",")
-            tool_list.append("P5" + ",")
-            tool_list.append("P6" + ",")
-            tool_list.append("P7" + ",")
-            tool_list.append("P8" + ",")
-        else:
-            if float(my_list[3]) <= 80.0:
-                tool_list.append(str(80) + ",")#R-TOL
-            elif float(my_list[3]) >= 80.0:
-                tool_list.append(str(80) + ",")#R-TOL
-            elif float(my_list[3]) >= 125.0:
-                tool_list.append(str(125) + ",")#R-TOL
-            
-            tool_list.append(my_list[31] + ",")#P2
-            tool_list.append(my_list[32] + ",")#P3
-            tool_list.append("0" + ",")
-            tool_list.append("0" + ",")
-            tool_list.append("0" + ",")
-            tool_list.append("0" + ",")
-
-            tool_list.append(str(int(round(float(my_list[2]),0)) + 10) + ",") #L-TOL
-
-        tool_list.append(my_list[34] + ",")#PITCH
-        
-        if i == 1:
-            tool_list.append(my_list[17] + ",")#PLC
-        else:
-            tool_list.append("0" + ",")#PLC
-
-        tool_list.append(my_list[25] + ",")#PLC-VAL
-
-        if i == 1:
-            tool_list.append("PTYP" + ",")
-        else:
-            tool_list.append("0" + ",")
-
-        tool_list.append(my_list[4] + ",")#R2
-
-        if i == 1:
-            tool_list.append("R2TOL" + ",")
-        else:
-            tool_list.append("0" + ",")
-
-        tool_list.append(my_list[21] + ",")#RBREAK 
-
-        if i == 1:
-            tool_list.append("RT" + ",")
-        else:
-            tool_list.append("" + ",") 
-
-        tool_list.append(my_list[15] + ",")#RTOL
-        tool_list.append(my_list[33] + ",")#T-ANGLE
-        tool_list.append(my_list[9] + ",")#TIME1
-        tool_list.append(my_list[10] + ",")#TIME2
-
-        if i == 1:
-            tool_list.append("TL" + ",")
-            tool_list.append("TMAT" + ",")
-            tool_list.append("TP_NO" + ",")
-        else:
-            tool_list.append("" + ",")
-            tool_list.append("" + ",")
-            tool_list.append("" + ",")
-
-        tool_list.append(my_list[18] + ",")#TT:L-OFFS
-        tool_list.append(my_list[19] + ",")#TT:R-OFFS
-
-        if i == 1:
-            tool_list.append(my_list[24] + "")#TYP
-        else:
-            if "MILL" in my_list[24]:
-                tool_list.append("0" + "")#TYP
-            elif "DRILL" in my_list[24]:
-                tool_list.append("1" + "")#TYP
-            else:
-                tool_list.append("" + "")#TYP
-
-        # tool_list.append(my_list[26] + ",")#CAL-OF1
-        # tool_list.append(my_list[27] + ",")#CAL-OF12
-        # tool_list.append(my_list[28] + ",")#CAL-ANG
-
-        tool_list = "".join(tool_list)
-        tool_list = tool_list + "\n"
-
-        output.append(tool_list) # In liste schreiben
+        if DateiEndung == "wzd":
+            output.append(WZD_file(tool_list, lines, i, KorrigierenTNummer, output))
+        elif DateiEndung == "out":
+            output.append(OUT_file(tool_list, lines, i, KorrigierenTNummer, output))
 
     with open(outputpath , 'w+') as f:
         for item in output:
             f.writelines(item)
 
-# Funktionen Checkfor Update
-
-def CheckVersion_forUpdate():
-    global AktulleVersion
-    # Installierte Version lesen.
-    with open(pfad_updatepfad) as file:
-        AktulleVersion = json.load(file)
-
-    AktulleVersion = float(AktulleVersion["Programmversion"])
-    UpdateChecker.ui.LBL_aktuelleVersion.setText(str(AktulleVersion))
-    print("Aktuelle Version: " + str(AktulleVersion))
-
-    # Neuste Version lesen.
-
-    NeusteVersion = requests.get(url=JsonURL, headers=headersURL, params=paramURL)
-    NeusteVersion = NeusteVersion.json()
-    NeusteVersion = float(NeusteVersion["Programmversion"])
-    UpdateChecker.ui.LBL_verfuegbareVersion.setText(str(NeusteVersion))
-    print("Neuste Version: " + str(NeusteVersion))
-
-    if AktulleVersion == NeusteVersion:
-        pass
-    else:
-        UpdateChecker.show() # main window öffnen
-
-# Updatechecker
-
 if os.path.exists(TempPath) == False:
     os.makedirs(TempPath)
+
+
+def WZD_file(tool_list, lines, i, KorrigierenTNummer, output):
+        #  Aufteilen und mit Komma wieder zusammenfügen.
+    my_list = lines[i].split() 
+
+    if i > 1:
+        my_list.insert(9,"0")
+        my_list.insert(10,"0") 
+        my_list.insert(11,"0")
+        my_list.pop(17)
+        my_list.pop(16)
+        my_list.insert(28,"0")
+        my_list.insert(29,"0")
+        my_list.insert(38,"0")
+        my_list.insert(41,"0")
+
+    if MainWindow.ui.TOOL_NBR.text().isnumeric():
+        if i == 1:
+            tool_list.append(my_list[0] + ",") #T
+        else:
+            Nummer = MainWindow.ui.TOOL_NBR.text()
+            Nummer = int(Nummer) + i - KorrigierenTNummer - 2
+            tool_list.append(str(Nummer) + ",") #T
+
+    tool_list.append(my_list[1] + ",")#Name
+
+    if i == 1:
+        tool_list.append(my_list[2] + ",")#L
+        tool_list.append(my_list[3] + ",")#R
+        tool_list.append("ACC" + ",")
+        tool_list.append("AFC" + ",")
+        tool_list.append("AFC-LOAD" + ",")
+        tool_list.append("AFC-OVLD1" + ",")
+        tool_list.append("AFC-OVLD2" + ",")
+    else:
+        tool_list.append(str(round(float(my_list[2]),4)) + ",")#L
+        tool_list.append(str(round(float(my_list[3]),4)) + ",")#R
+        tool_list.append("0" + ",")
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")   
+        tool_list.append("" + ",")  
+        tool_list.append("" + ",")
+
+    tool_list.append(my_list[26] + ",")#ANGLE
+    tool_list.append(my_list[14] + ",")#CUR.TIME
+    tool_list.append(my_list[16] + ",")#CUT
+
+    if i == 1:
+        tool_list.append("CUTDATA" + ",")
+    else:
+        tool_list.append("0" + ",")
+
+    tool_list.append(my_list[19] + ",")#DIRECT
+    tool_list.append(my_list[5] + ",")#DL
+    if i == 1:
+        tool_list.append(my_list[15] + ",")#DOC
+    else:
+        tool_list.append(my_list[42] + ",")#COMMENT
+    tool_list.append(my_list[7] + ",")#DR
+    tool_list.append(my_list[8] + ",")#DR2
+
+    if i == 1:
+        tool_list.append("DR2TABLE" + ",")
+        tool_list.append("INV-NR" + ",")
+    else:
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+
+    if i == 1:
+        tool_list.append("KINEMATIC" + ",")#Kinematic
+        tool_list.append("LAST_USE" + ",")
+        tool_list.append(my_list[23] + ",")#LBREAK
+        tool_list.append(my_list[25] + ",")#LCUTS
+    else:
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+        tool_list.append(str(my_list[23]) + ",")#LBREAK
+        tool_list.append(str(my_list[25]) + ",")#LCUTS
+
+    tool_list.append(my_list[34] + ",")#LIFTOFF
+    
+    if i == 1:
+        tool_list.append(my_list[17] + ",")#LTOL
+    else:
+        tool_list.append("0" + ",")
+
+    tool_list.append(my_list[6] + ",")#NMAX
+
+    if i == 1:
+        tool_list.append("OVRTIME" + ",")
+    else:
+        tool_list.append("" + ",")
+
+    if i == 1:
+        tool_list.append(my_list[35] + ",")#P1
+        tool_list.append(my_list[36] + ",")#P2
+        tool_list.append(my_list[37] + ",")#P3
+        tool_list.append("P4" + ",")
+        tool_list.append("P5" + ",")
+        tool_list.append("P6" + ",")
+        tool_list.append("P7" + ",")
+        tool_list.append("P8" + ",")
+    else:
+        if float(my_list[3]) < 40.0:
+            tool_list.append(str(35) + ",") #R-TOL (P1)
+        elif float(my_list[3]) > 62.5:
+            tool_list.append(str(125) + ",") #R-TOL (P1)
+        elif float(my_list[3]) > 40.0:
+            tool_list.append(str(80) + ",") #R-TOL (P1)
+
+        
+        tool_list.append(my_list[36] + ",")#P2
+        tool_list.append(my_list[37] + ",")#P3
+        tool_list.append("0" + ",")
+        tool_list.append("0" + ",")
+        tool_list.append("0" + ",")
+        tool_list.append("0" + ",")
+
+        tool_list.append(str(int(round(float(my_list[2]),0)) + 10) + ",") #Länge max.
+
+    tool_list.append(my_list[40] + ",")#PITCH
+    
+    if i == 1:
+        tool_list.append("PLC" + ",") #PLC
+    else:
+        tool_list.append(my_list[20] + ",") #PLC 
+
+    tool_list.append(my_list[30] + ",")#PLC-VAL
+
+    if i == 1:
+        tool_list.append("PTYP" + ",")
+    else:
+        tool_list.append("0" + ",")
+
+    tool_list.append(my_list[4] + ",")#R2
+
+    if i == 1:
+        tool_list.append("R2TOL" + ",")
+    else:
+        tool_list.append("0" + ",")
+
+    tool_list.append(my_list[24] + ",")#RBREAK 
+
+    if i == 1:
+        tool_list.append("RT" + ",")
+    else:
+        tool_list.append("" + ",") 
+
+    tool_list.append(my_list[18] + ",")#RTOL
+    tool_list.append(my_list[39] + ",")#T-ANGLE
+    tool_list.append(my_list[12] + ",")#TIME1
+    tool_list.append(my_list[13] + ",")#TIME2
+
+    if i == 1:
+        tool_list.append("TL" + ",")
+        tool_list.append("TMAT" + ",")
+        tool_list.append("TP_NO" + ",")
+    else:
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+
+    tool_list.append(my_list[21] + ",")#TT:L-OFFS
+    tool_list.append(my_list[22] + ",")#TT:R-OFFS
+
+    if i == 1:
+        tool_list.append(my_list[27] + "")#TYP
+    else:
+        if "MILL" in my_list[27]:
+            tool_list.append("0" + "")#TYP
+        elif "DRILL" in my_list[27]:
+            tool_list.append("1" + "")#TYP
+        else:
+            tool_list.append("" + "")#TYP
+
+    tool_list = "".join(tool_list)
+    tool_list = tool_list + "\n"
+
+    return tool_list
+
+def OUT_file(tool_list, lines, i, KorrigierenTNummer, output):
+        #  Aufteilen und mit Komma wieder zusammenfügen.
+    my_list = lines[i].split() 
+
+    if i > 1:
+        my_list.insert(10,"0")
+        my_list.insert(11,"0")
+        my_list.insert(28,"0")
+        my_list.insert(29,"0")
+        my_list.insert(38,"0")
+        my_list.insert(41,"0")
+        
+
+    if MainWindow.ui.TOOL_NBR.text().isnumeric():
+        if i == 1:
+            tool_list.append(my_list[0] + ",") #T
+        else:
+            Nummer = MainWindow.ui.TOOL_NBR.text()
+            Nummer = int(Nummer) + i - KorrigierenTNummer - 2
+            tool_list.append(str(Nummer) + ",") #T
+
+    tool_list.append(my_list[1] + ",")#Name
+
+    if i == 1:
+        tool_list.append(my_list[2] + ",")#L
+        tool_list.append(my_list[3] + ",")#R
+        tool_list.append("ACC" + ",")
+        tool_list.append("AFC" + ",")
+        tool_list.append("AFC-LOAD" + ",")
+        tool_list.append("AFC-OVLD1" + ",")
+        tool_list.append("AFC-OVLD2" + ",")
+    else:
+        tool_list.append(str(round(float(my_list[2]),4)) + ",")#L
+        tool_list.append(str(round(float(my_list[3]),4)) + ",")#R
+        tool_list.append("0" + ",") #ACC
+        tool_list.append("" + ",") #AFC
+        tool_list.append("" + ",") #AFC-LOAD
+        tool_list.append("" + ",") #AFC-LOAD1
+        tool_list.append("" + ",") #AFC-LOAD2
+
+    tool_list.append(my_list[26] + ",")#ANGLE
+    tool_list.append(my_list[14] + ",")#CUR.TIME
+    tool_list.append(my_list[16] + ",")#CUT
+
+    if i == 1:
+        tool_list.append("CUTDATA" + ",") #CUTDATA
+    else:
+        tool_list.append("0" + ",") #CUTDATA
+
+    tool_list.append(my_list[19] + ",")#DIRECT
+    tool_list.append(my_list[5] + ",")#DL
+    tool_list.append(my_list[15] + ",")#DOC
+    tool_list.append(my_list[7] + ",")#DR
+    tool_list.append(my_list[8] + ",")#DR2
+
+    if i == 1:
+        tool_list.append("DR2TABLE" + ",") #DR2TABLE
+    else:
+        tool_list.append("" + ",") #DR2TABLE
+
+    if i == 1:
+        tool_list.append("KINEMATIC" + ",")#Kinematic
+        tool_list.append("LAST_USE" + ",")
+        tool_list.append(my_list[23] + ",")#LBREAK
+        tool_list.append(my_list[25] + ",")#LCUTS
+    else:
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+        tool_list.append(str(float(my_list[23])) + ",")#LBREAK
+        tool_list.append(str(0) + ",")#LCUTS
+
+    tool_list.append(my_list[34] + ",")#LIFTOFF
+    
+    if i == 1:
+        tool_list.append(my_list[17] + ",")#LTOL
+    else:
+        tool_list.append("0" + ",")
+
+    tool_list.append(my_list[6] + ",")#NMAX
+
+    if i == 1:
+        tool_list.append("OVRTIME" + ",")
+    else:
+        tool_list.append("" + ",")
+
+    tool_list.append(my_list[40] + ",")#PITCH
+
+    if i == 1:
+        tool_list.append("PTYP" + ",")
+    else:
+        tool_list.append("1" + ",")
+
+    tool_list.append(my_list[4] + ",")#R2
+
+    if i == 1:
+        tool_list.append("R2TOL" + ",")
+    else:
+        tool_list.append("0" + ",")
+
+    tool_list.append(my_list[24] + ",")#RBREAK 
+
+    # if i == 1:
+    #     tool_list.append("PLC" + ",") #PLC
+    # else:
+    #     tool_list.append(my_list[20] + ",") #PLC 
+
+    tool_list.append(my_list[18] + ",")#RTOL
+    tool_list.append(my_list[39] + ",")#T-ANGLE
+    tool_list.append(my_list[12] + ",")#TIME1
+    tool_list.append(my_list[13] + ",")#TIME2
+
+    if i == 1:
+        tool_list.append("TL" + ",")
+        tool_list.append("TMAT" + ",")
+        tool_list.append("TP_NO" + ",")
+    else:
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+        tool_list.append("" + ",")
+
+    tool_list.append(my_list[21] + ",")#TT:L-OFFS
+    tool_list.append(my_list[22] + ",")#TT:R-OFFS
+
+    if i == 1:
+        tool_list.append(my_list[27] + "")#TYP
+    else:
+        if "MILL" in my_list[27]:
+            tool_list.append("0" + "")#TYP
+        elif "DRILL" in my_list[27]:
+            tool_list.append("1" + "")#TYP
+        else:
+            tool_list.append("" + "")#TYP
+    
+    tool_list = "".join(tool_list)
+    tool_list = tool_list + "\n"
+
+
+    return tool_list
 
 # Programm Code
 
@@ -425,8 +542,6 @@ if __name__ == "__main__":
     Fortschritt_UpdateChecker = Fortschritt_UpdateChecker()    
     MainWindow = MainWindow()
     ERROR_MSG = ERROR_MSG()
-
-    CheckVersion_forUpdate()
 
     MainWindow.ui.label_ProgrammVersion.setText("V" + str(AktulleVersion))
     MainWindow.show() # main window öffnen
